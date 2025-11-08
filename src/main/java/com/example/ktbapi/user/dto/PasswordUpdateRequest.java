@@ -8,11 +8,11 @@ import jakarta.validation.constraints.AssertTrue;
 @Schema(description = "비밀번호 변경 요청")
 public class PasswordUpdateRequest {
   @NotBlank(message = "oldPassword is required")
-  public String oldPassword;     // ← 컨트롤러와 동일
+  public String oldPassword;
 
   @NotBlank(message = "newPassword is required")
   @Size(min = 8, max = 200, message = "newPassword must be between 8 and 200 chars")
-  public String newPassword;     // ← 컨트롤러와 동일
+  public String newPassword;
 
   @NotBlank(message = "newPasswordCheck is required")
   public String newPasswordCheck;

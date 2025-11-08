@@ -54,12 +54,10 @@ public class User extends BaseTimeEntity {
         this.role = role != null ? role : UserRole.USER;
     }
 
-    // ✅ 닉네임 변경
     public void changeNickname(String newNickname) {
         if (newNickname != null && !newNickname.isBlank()) this.nickname = newNickname;
     }
 
-    // ✅ 비밀번호 변경
     public void changePassword(String newPassword) {
         if (newPassword == null || newPassword.isBlank()) {
             throw new IllegalArgumentException("password required");
@@ -67,7 +65,6 @@ public class User extends BaseTimeEntity {
         this.password = newPassword;
     }
 
-    // ✅ 프로필 이미지 Getter/Setter
     public String getProfileImage() { return profileImage; }
     public void setProfileImage(String profileImage) { this.profileImage = profileImage; }
 

@@ -11,6 +11,6 @@ public class ProfileUpdateRequest {
   public String nickname;
 
   @Schema(description = "프로필 이미지 URL (선택)")
-  public String profileImage; // ← 카멜케이스 (컨트롤러와 동일)
+  public String profileImage;
 }
 

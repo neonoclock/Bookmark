@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.011s</div>
+<div class="counter">0.012s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,7 +81,7 @@
 <tr>
 <td class="success">순수 JPA로 프록시 초기화: 게터 접근 시점에 SELECT 발생</td>
 <td class="success">proxy_lazy_origin_jpa_getter()</td>
-<td class="success">0.007s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -95,23 +95,23 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2025-11-07T21:32:54.077+09:00  INFO 16643 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.ktbapi.proxy.ProxyTest]: ProxyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-11-07T21:32:54.079+09:00  INFO 16643 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.ktbapi.KtbapiApplication for test class com.example.ktbapi.proxy.ProxyTest
-2025-11-07T21:32:54.081+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+<pre>2025-11-08T20:49:34.446+09:00  INFO 58973 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.ktbapi.proxy.ProxyTest]: ProxyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-11-08T20:49:34.448+09:00  INFO 58973 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.ktbapi.KtbapiApplication for test class com.example.ktbapi.proxy.ProxyTest
+2025-11-08T20:49:34.450+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         &quot;user&quot;
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
+        (?, ?, ?, ?, ?, ?, ?, default)
 Hibernate: 
     insert 
     into
         &quot;user&quot;
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:54.082+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, default)
+2025-11-08T20:49:34.451+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         posts
@@ -125,7 +125,7 @@ Hibernate:
         (user_id, content, created_at, image_url, likes, title, updated_at, views, post_id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:54.083+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.452+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     select
         p1_0.post_id,
         p1_0.user_id,
@@ -157,13 +157,14 @@ Hibernate:
         p1_0.post_id=?
 초기화 전 isLoaded = false
 프록시 실제 클래스 = com.example.ktbapi.user.model.User$HibernateProxy
-2025-11-07T21:32:54.085+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.454+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     select
         u1_0.user_id,
         u1_0.created_at,
         u1_0.email,
         u1_0.nickname,
         u1_0.password,
+        u1_0.profile_image,
         u1_0.user_role,
         u1_0.updated_at 
     from
@@ -177,6 +178,7 @@ Hibernate:
         u1_0.email,
         u1_0.nickname,
         u1_0.password,
+        u1_0.profile_image,
         u1_0.user_role,
         u1_0.updated_at 
     from
@@ -185,21 +187,21 @@ Hibernate:
         u1_0.user_id=?
 게터 접근으로 초기화됨, nickname = ProxyUser2
 게터 접근 후 isLoaded = true
-2025-11-07T21:32:54.088+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.459+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         &quot;user&quot;
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
+        (?, ?, ?, ?, ?, ?, ?, default)
 Hibernate: 
     insert 
     into
         &quot;user&quot;
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:54.089+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, default)
+2025-11-08T20:49:34.459+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         posts
@@ -213,7 +215,7 @@ Hibernate:
         (user_id, content, created_at, image_url, likes, title, updated_at, views, post_id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:54.089+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.460+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     select
         p1_0.post_id,
         p1_0.user_id,
@@ -245,13 +247,14 @@ Hibernate:
         p1_0.post_id=?
 초기화 전 isLoaded = false
 프록시 실제 클래스 = com.example.ktbapi.user.model.User$HibernateProxy
-2025-11-07T21:32:54.090+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.460+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     select
         u1_0.user_id,
         u1_0.created_at,
         u1_0.email,
         u1_0.nickname,
         u1_0.password,
+        u1_0.profile_image,
         u1_0.user_role,
         u1_0.updated_at 
     from
@@ -265,6 +268,7 @@ Hibernate:
         u1_0.email,
         u1_0.nickname,
         u1_0.password,
+        u1_0.profile_image,
         u1_0.user_role,
         u1_0.updated_at 
     from
@@ -284,7 +288,7 @@ Hibernate:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14.3</a> at 2025. 11. 7. 오후 9:32:54</p>
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at 2025. 11. 8. 오후 8:49:34</p>
 </div>
 </div>
 </body>

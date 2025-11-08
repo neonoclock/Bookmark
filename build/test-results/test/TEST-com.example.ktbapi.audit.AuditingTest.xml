@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.ktbapi.audit.AuditingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-07T12:32:53.984Z" hostname="neonui-MacBookPro.local" time="0.063">
+<testsuite name="com.example.ktbapi.audit.AuditingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-08T11:49:34.362Z" hostname="neonui-MacBookPro.local" time="0.056">
   <properties/>
-  <testcase name="Auditing: 생성/수정 시간이 자동으로 기록된다" classname="com.example.ktbapi.audit.AuditingTest" time="0.063"/>
-  <system-out><![CDATA[2025-11-07T21:32:53.979+09:00  INFO 16643 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.ktbapi.audit.AuditingTest]: AuditingTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-11-07T21:32:53.983+09:00  INFO 16643 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.ktbapi.KtbapiApplication for test class com.example.ktbapi.audit.AuditingTest
-2025-11-07T21:32:53.986+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+  <testcase name="Auditing: 생성/수정 시간이 자동으로 기록된다" classname="com.example.ktbapi.audit.AuditingTest" time="0.056"/>
+  <system-out><![CDATA[2025-11-08T20:49:34.358+09:00  INFO 58973 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.ktbapi.audit.AuditingTest]: AuditingTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-11-08T20:49:34.362+09:00  INFO 58973 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.ktbapi.KtbapiApplication for test class com.example.ktbapi.audit.AuditingTest
+2025-11-08T20:49:34.364+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         "user"
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
+        (?, ?, ?, ?, ?, ?, ?, default)
 Hibernate: 
     insert 
     into
         "user"
-        (created_at, email, nickname, password, user_role, updated_at, user_id) 
+        (created_at, email, nickname, password, profile_image, user_role, updated_at, user_id) 
     values
-        (?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:53.987+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, default)
+2025-11-08T20:49:34.365+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     insert 
     into
         posts
@@ -32,7 +32,7 @@ Hibernate:
         (user_id, content, created_at, image_url, likes, title, updated_at, views, post_id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2025-11-07T21:32:54.042+09:00 DEBUG 16643 --- [    Test worker] org.hibernate.SQL                        : 
+2025-11-08T20:49:34.415+09:00 DEBUG 58973 --- [    Test worker] org.hibernate.SQL                        : 
     update
         posts 
     set

@@ -1,24 +1,24 @@
 package com.example.ktbapi.user.dto;
 
-import jakarta.validation.constraints.AssertTrue;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.AssertTrue;
 
 @Schema(description = "비밀번호 변경 요청")
 public class PasswordUpdateRequest {
-  @NotBlank(message = "current_password is required")
-  public String current_password;
+  @NotBlank(message = "oldPassword is required")
+  public String oldPassword;     // ← 컨트롤러와 동일
 
-  @NotBlank(message = "new_password is required")
-  @Size(min = 8, message = "new_password must be >= 8 chars")
-  public String new_password;
+  @NotBlank(message = "newPassword is required")
+  @Size(min = 8, max = 200, message = "newPassword must be between 8 and 200 chars")
+  public String newPassword;     // ← 컨트롤러와 동일
 
-  @NotBlank(message = "new_password_check is required")
-  public String new_password_check;
+  @NotBlank(message = "newPasswordCheck is required")
+  public String newPasswordCheck;
 
   @AssertTrue(message = "password_mismatch")
   public boolean isNewPasswordMatch() {
-    return new_password != null && new_password.equals(new_password_check);
+    return newPassword != null && newPassword.equals(newPasswordCheck);
   }
 }

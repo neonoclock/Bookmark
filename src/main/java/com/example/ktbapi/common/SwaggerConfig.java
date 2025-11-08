@@ -23,6 +23,11 @@ public class SwaggerConfig {
         return GroupedOpenApi.builder()
                 .group("posts-controller")
                 .packagesToScan("com.example.ktbapi.post.api")
+                .pathsToMatch("/api/v1/posts", "/api/v1/posts/**")
+                .pathsToExclude(
+                        "/api/v1/posts/*/comments/**",
+                        "/api/v1/posts/*/like" 
+                )
                 .build();
     }
 
@@ -31,22 +36,36 @@ public class SwaggerConfig {
         return GroupedOpenApi.builder()
                 .group("comments-controller")
                 .packagesToScan("com.example.ktbapi.post.api")
+                .pathsToMatch(
+                        "/api/v1/posts/*/comments",
+                        "/api/v1/posts/*/comments/**"
+                )
                 .build();
     }
+
+    @Bean
+    public GroupedOpenApi likesApi() {
+        return GroupedOpenApi.builder()
+                .group("post-like-controller")
+                .packagesToScan("com.example.ktbapi.post.api")
+                .pathsToMatch("/api/v1/posts/*/like")
+                .build();
+    }
+    @Bean
+    public GroupedOpenApi querydslApi() {
+        return GroupedOpenApi.builder()
+                .group("post-querydsl-controller")
+                .pathsToMatch("/api/querydsl/**")
+                .build();
+    }
+
 
     @Bean
     public GroupedOpenApi usersApi() {
         return GroupedOpenApi.builder()
-                .group("users-controller")
+                .group("users")
                 .packagesToScan("com.example.ktbapi.user.api")
-                .build();
-    }
-
-    @Bean
-    public GroupedOpenApi querydslApi() {
-        return GroupedOpenApi.builder()
-                .group("querydsl-controller")
-                .packagesToScan("com.example.ktbapi.postquerydsl.api")
+                .pathsToMatch("/api/v1/users", "/api/v1/users/**")
                 .build();
     }
 }

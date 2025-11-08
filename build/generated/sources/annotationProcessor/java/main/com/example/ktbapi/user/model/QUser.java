@@ -32,6 +32,8 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath password = createString("password");
 
+    public final StringPath profileImage = createString("profileImage");
+
     public final EnumPath<UserRole> role = createEnum("role", UserRole.class);
 
     //inherited

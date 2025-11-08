@@ -35,14 +35,15 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false, name = "user_role", length = 20)
     private UserRole role = UserRole.USER;
 
+    @Column(name = "profile_image", length = 500)
+    private String profileImage;
+
     protected User() { }
 
-    // ✅ 기본 생성자
     public User(String email, String password, String nickname) {
         this(email, password, nickname, UserRole.USER);
     }
 
-    // ✅ 명시적 생성자
     public User(String email, String password, String nickname, UserRole role) {
         if (email == null || email.isBlank()) throw new IllegalArgumentException("email required");
         if (password == null || password.isBlank()) throw new IllegalArgumentException("password required");
@@ -53,9 +54,22 @@ public class User extends BaseTimeEntity {
         this.role = role != null ? role : UserRole.USER;
     }
 
+    // ✅ 닉네임 변경
     public void changeNickname(String newNickname) {
         if (newNickname != null && !newNickname.isBlank()) this.nickname = newNickname;
     }
+
+    // ✅ 비밀번호 변경
+    public void changePassword(String newPassword) {
+        if (newPassword == null || newPassword.isBlank()) {
+            throw new IllegalArgumentException("password required");
+        }
+        this.password = newPassword;
+    }
+
+    // ✅ 프로필 이미지 Getter/Setter
+    public String getProfileImage() { return profileImage; }
+    public void setProfileImage(String profileImage) { this.profileImage = profileImage; }
 
     public Long getId() { return id; }
     public String getEmail() { return email; }

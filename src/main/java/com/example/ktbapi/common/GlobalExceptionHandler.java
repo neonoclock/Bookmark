@@ -27,7 +27,6 @@ public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    // ✅ 실패 응답은 항상 ApiResponse<Void>로 통일 (detail은 별도 필드)
     private static ResponseEntity<ApiResponse<Void>> error(HttpStatus status, String code, Object detail) {
         return ResponseEntity.status(status).body(ApiResponse.error(code, detail));
     }

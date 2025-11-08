@@ -9,6 +9,7 @@ import com.example.ktbapi.user.model.UserRole;
 
 @Schema(description = "회원가입 요청")
 public class SignupRequest {
+
   @Email(message = "invalid email format")
   @NotBlank(message = "email is required")
   @Size(max = 200, message = "email must be <= 200 chars")

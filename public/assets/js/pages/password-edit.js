@@ -78,8 +78,11 @@ function setupAvatarMenu() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = $(".form");
-  const pwEl = $("#pw");
-  const pw2El = $("#pw2");
+
+  // ✅ 각 필드 DOM
+  const currentPwEl = $("#currentPw"); // 현재 비밀번호
+  const pwEl = $("#pw"); // 새 비밀번호
+  const pw2El = $("#pw2"); // 새 비밀번호 확인
   const submitBtn = $(".btn.primary");
 
   const userId = loadUserId();
@@ -96,11 +99,17 @@ document.addEventListener("DOMContentLoaded", () => {
     clearFormHelpers(form);
     let ok = true;
 
+    const currentPw = currentPwEl.value.trim();
     const pw = pwEl.value.trim();
     const pw2 = pw2El.value.trim();
 
+    if (!currentPw) {
+      setHelper(currentPwEl, "현재 비밀번호를 입력해주세요.", true);
+      ok = false;
+    }
+
     if (!pw) {
-      setHelper(pwEl, "비밀번호를 입력해주세요.", true);
+      setHelper(pwEl, "새 비밀번호를 입력해주세요.", true);
       ok = false;
     }
 
@@ -126,9 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     if (!validate()) return;
 
-    const oldPassword = pwEl.value.trim();
-    const newPassword = pwEl.value.trim();
-    const newPasswordCheck = pw2El.value.trim();
+    // ✅ 서버에서 기대하는 DTO 필드에 맞게 값 매핑
+    const oldPassword = currentPwEl.value.trim(); // 현재 비밀번호
+    const newPassword = pwEl.value.trim(); // 새 비밀번호
+    const newPasswordCheck = pw2El.value.trim(); // 새 비밀번호 확인
 
     setDisabled(submitBtn, true);
 

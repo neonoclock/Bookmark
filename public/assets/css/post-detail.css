@@ -31,8 +31,9 @@ body {
   --w: 760px;
 }
 .brand a {
-  text-decoration: none;
-  color: inherit;
+  color: inherit; /* brand 색상 그대로 따라감 */
+  text-decoration: none; /* 밑줄 제거 */
+  display: inline-block; /* 정렬 안정화 */
 }
 
 /* ===== Header ===== */

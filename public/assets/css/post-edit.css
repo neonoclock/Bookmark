@@ -135,6 +135,12 @@ body {
   min-height: calc(100vh - 80px);
 }
 
+.brand a {
+  color: inherit; /* brand 색상 그대로 따라감 */
+  text-decoration: none; /* 밑줄 제거 */
+  display: inline-block; /* 정렬 안정화 */
+}
+
 .page-title {
   margin: 10px 0 20px;
   text-align: center;

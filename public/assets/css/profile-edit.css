@@ -328,6 +328,11 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
+.brand a {
+  color: inherit; /* brand 색상 그대로 따라감 */
+  text-decoration: none; /* 밑줄 제거 */
+  display: inline-block; /* 정렬 안정화 */
+}
 
 /* 수정하기 (블록 버튼) */
 .btn.block {
